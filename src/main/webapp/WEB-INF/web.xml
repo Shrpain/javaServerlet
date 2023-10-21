@@ -70,26 +70,4 @@
     <url-pattern>/dangdangnhapcontroller</url-pattern>
     <url-pattern>/dangnhapSVL</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>dangkyserverlet</display-name>
-    <servlet-name>dangkyserverlet</servlet-name>
-    <servlet-class>controller.dangkyserverlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>dangkyserverlet</servlet-name>
-    <url-pattern>/dangkyserverlet</url-pattern>
-    <url-pattern>/dangkySRV</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DoiMKSVL</display-name>
-    <servlet-name>DoiMKSVL</servlet-name>
-    <servlet-class>controller.DoiMKSVL</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DoiMKSVL</servlet-name>
-    <url-pattern>/DoiMKSVL</url-pattern>
-    <url-pattern>/doiMKSRV</url-pattern>
-  </servlet-mapping>
 </web-app>

@@ -47,9 +47,9 @@
 				<%
 				} else {
 				%>
-				<li><a class="nav-link" href="dangdangnhapcontroller"><span
+				<li><a class="nav-link" href="dangnhapcontroller"><span
 						class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
-				<li><a class="nav-link" href="dangky.jsp"><span
+				<li><a class="nav-link" href="Register.jsp"><span
 						class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
 				<%
 				}
@@ -60,15 +60,14 @@
 
 <div class="container" style="max-width: 400px">
   <h2>Đăng Nhập</h2>
-  <form action="dangnhapSVL" method="post">
+  <form action="dangnhapcontroller" method="post">
     <div class="form-group">
-    <h2 style="color: <%= (request.getAttribute("error") == null) ? "transparent" : "red" %>"><%= request.getAttribute("error") %></h2>
-      <label for="taikhoan">Tài Khoản:</label>
-      <input type="text" class="form-control" name="taikhoan">
+      <label for="acc">Tài Khoản:</label>
+      <input type="text" class="form-control" name="acc">
     </div>
     <div class="form-group">
-      <label for="matkhau">Mật Khẩu:</label>
-      <input type="text" class="form-control"  name="matkhau">
+      <label for="pw">Mật Khẩu:</label>
+      <input type="text" class="form-control"  name="pw">
     </div>
     
     <button type="submit" class="btn btn-default">Đăng Nhập</button>
