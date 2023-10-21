@@ -59,19 +59,21 @@
 	</nav>
 
 <div class="container" style="max-width: 400px">
-  <h2>Đăng Nhập</h2>
-  <form action="dangnhapSVL" method="post">
+  <h2>Đổi Mật Khẩu</h2>
+  <form action="doiMKSRV" method="post">
     <div class="form-group">
     <h2 style="color: <%= (request.getAttribute("error") == null) ? "transparent" : "red" %>"><%= request.getAttribute("error") %></h2>
-      <label for="taikhoan">Tài Khoản:</label>
-      <input type="text" class="form-control" name="taikhoan">
+      <label for="matkhau">Mật Khẩu Cũ:</label>
+      <input type="hidden" name="user" value="<%=session.getAttribute("tendangnhap") %>>">
+      <input type="text" class="form-control"  name="matkhau">
     </div>
     <div class="form-group">
-      <label for="matkhau">Mật Khẩu:</label>
+      <label for="matkhau">Mật Khẩu Mới:</label>
       <input type="text" class="form-control"  name="matkhau">
     </div>
     
-    <button type="submit" class="btn btn-default">Đăng Nhập</button>
+    
+    <button type="submit" class="btn btn-default">Đổi</button>
   </form>
 </div>
 </body>

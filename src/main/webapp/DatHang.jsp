@@ -1,3 +1,4 @@
+<%@page import="bean.TaiKhoan"%>
 <%@page import="bean.loaibean"%>
 <%@page import="bo.giohangbo"%>
 <%@page import="bean.giohangbean"%>
@@ -10,16 +11,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Trang Chủ</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Trang Chủ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+
 <%
 long slg=0;
 if(session.getAttribute("gh")!=null){
@@ -28,44 +27,43 @@ if(session.getAttribute("gh")!=null){
 	slg = ghbo.ds.size();
 }
 %>
+
 <body>
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="sachcontroller">Trang Chủ</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li><a href="dathangcontroller"><span
-						class="glyphicon glyphicon-shopping-cart"></span>Giỏ Hàng(<%=slg %>)</a></li>
-				<li><a href="CreditCard.jsp"><span
-						class="glyphicon glyphicon-credit-card"></span>Thanh Toán</a></li>
-				<li><a href="HistoryPay.jsp"><span
-						class="glyphicon glyphicon-th-list"></span>Lịch Sử Mua Hàng</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><button type="button" class="btn btn-info navbar-btn">
-						<span class="glyphicon glyphicon-search"></span> Tìm kiếm
-					</button></li>
-				<%
-            if (session.getAttribute("dn") != null) {
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="sachcontroller">Trang Chủ</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="dathangcontroller"><span class="glyphicon glyphicon-shopping-cart"></span>Giỏ Hàng(<%=slg%>) </a></li>
+            <li><a href="CreditCard.jsp"><span class="glyphicon glyphicon-credit-card"></span>Thanh Toán</a></li>
+            <li><a href="HistoryPay.jsp"><span class="glyphicon glyphicon-th-list"></span>Lịch Sử Mua Hàng</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><button type="button" class="btn btn-info navbar-btn"><span class="glyphicon glyphicon-search"></span> Tìm kiếm</button></li>
+            <%
+            if (session.getAttribute("acc") != null) {
+                				TaiKhoan account = (TaiKhoan) session.getAttribute("acc");
+                				// Lấy thông tin tài khoản từ session
+                				String username = account.getTenDangNhap();
+                				// Sử dụng thông tin tài khoản theo cách bạn cần ở đây
             %>
-				<li><a class="nav-link" href="#"><span
-						class="glyphicon glyphicon-user"></span> Xin chào <%=session.getAttribute("dn")%></a></li>
-				<li><a class="nav-link" href="logout.jsp"><span
-						class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>
-				<%
-            } else {
-            %>
-				<li><a class="nav-link" href="Log.jsp"><span
-						class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
-				<li><a class="nav-link" href="Register.jsp"><span
-						class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
-				<%
-            }
-            %>
-			</ul>
-		</div>
-	</nav>
+					<li><a class="nav-link" href="#"><span
+        			class="glyphicon glyphicon-user"></span><%= username %></a></li>
+					<li><a class="nav-link" href="logout.jsp"><span
+        			class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>
+					<%
+					
+					} else {
+					%>
+					<li><a class="nav-link" href="login.jsp"><span
+        			class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+					<li><a class="nav-link" href="dangky.jsp"><span
+        			class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
+					<%}%>
+        </ul>
+    </div>
+</nav>
 	<%
 loaibo lbo = new loaibo();
 sachbo sbo = new sachbo();

@@ -59,8 +59,8 @@
 	</nav>
 
 <div class="container" style="max-width: 400px">
-  <h2>Đăng Nhập</h2>
-  <form action="dangnhapSVL" method="post">
+  <h2>Đăng Ký</h2>
+  <form action="dangkySRV" method="post">
     <div class="form-group">
     <h2 style="color: <%= (request.getAttribute("error") == null) ? "transparent" : "red" %>"><%= request.getAttribute("error") %></h2>
       <label for="taikhoan">Tài Khoản:</label>
@@ -71,7 +71,8 @@
       <input type="text" class="form-control"  name="matkhau">
     </div>
     
-    <button type="submit" class="btn btn-default">Đăng Nhập</button>
+    
+    <button type="submit" class="btn btn-default">Đăng Ký</button>
   </form>
 </div>
 </body>
